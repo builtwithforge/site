@@ -1,0 +1,129 @@
+doctype html
+
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  title Forge
+  script(defer src='https://use.fontawesome.com/releases/v5.3.1/js/all.js')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css')
+  link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Merriweather&display=swap')
+  style.
+    body, button, input, select, textarea {
+      font-family: "Merriweather", serif;
+    }
+
+    .container {
+      max-width: 1152px;
+    }
+
+    .title {
+      font-weight: normal;
+    }
+
+mixin requestInvite
+  //- Mailchimp form.
+  form(
+    action='https://builtwithforge.us3.list-manage.com/subscribe/post?u=50b83e8cc08cfc1c73ef2a27b&id=4aa48eccdb'
+    method='post'
+    name='mc-embedded-subscribe-form'
+    target='_blank'
+    novalidate
+    style='display: inline-block;'
+  )
+    .field.has-addons
+      .control
+        input.input(type='email' name='EMAIL' placeholder='my@email.address')
+      //- Detects spam bots.
+      div(style='position: absolute; left: -5000px;' aria-hidden='true')
+        input(type='text' name='b_50b83e8cc08cfc1c73ef2a27b_4aa48eccdb' tabindex='-1' value='')
+      .control
+        input.button(type='submit' value='Request an Invite' name='subscribe')
+
+body
+  section.hero.is-medium
+    .hero-body
+      .container
+        h1.title Forge
+        h2.subtitle The best engineering teams are built with Forge.
+        p Forge is a collection of tools for engineering managers to develop maximally effective teams.
+        br
+        +requestInvite
+
+  section.section
+    .container
+      h1.title Answer questions with data, not your gut
+      .columns
+        .column
+          h2.subtitle Are any of my engineers blocked?
+          p.
+            Check whether engineers are stuck at a glance. Keep an eye on risky,
+            critical, or complex work.
+        .column
+          //- e.g. ticket in progress but no WIP PR
+          figure.image
+            img(src='https://placehold.it/480x240')
+      .columns
+        .column
+          h2.subtitle Is any work falling behind?
+          p.
+            Find work that's been repeatedly delayed. Never be
+            surprised by an off-track status update.
+        .column
+          figure.image
+            img(src='https://placehold.it/480x240')
+
+  section.section
+    .container
+      h1.title Manage transparently
+      .columns
+        .column
+          h2.subtitle Transparent performance metrics
+          p.
+            Transparency and accountability are the key to fair engineering
+            management. Keep you and your reports aligned on how they're doing.
+        .column
+          figure.image
+            img(src='https://placehold.it/480x240')
+
+  section.section
+    .container
+      h1.title Equip your team
+      .columns
+        .column
+          h2.subtitle Tools for the small things in life
+          p.
+            "Who is in the office today?"<br />
+            "Who's next on rotation?"<br />
+            <br />
+            Don't spend brain space keeping track of the small stuff.
+        .column
+          figure.image
+            img(src='https://placehold.it/480x240')
+      .columns
+        .column
+          h2.subtitle Tools where you already are
+          p.
+            Don't force your team to learn yet another tool. Everyone is in
+            Slack anyway. 
+        .column
+          figure.image
+            img(src='https://placehold.it/480x240')
+
+  section.section.is-large
+    .container.has-text-centered
+      h1.title Engineering management tools shouldn't suck
+      +requestInvite
+
+  footer.footer
+    .container.has-text-centered
+      .level
+        .level-left
+          .level-item
+            p &copy; 2019 Forge
+        .level-right
+          .level-item
+            p
+              a(href='https://github.com/builtwithforge' target='_blank') GitHub
+          .level-item
+            p
+              a(href='mailto:team@builtwithforge.com' target='_blank') Contact
