@@ -1,6 +1,6 @@
-# landing
+# site
 
-builtwithforge.com is the landing page for Forge.
+This repository contains the code for [builtwithforge.com](https://builtwithforge.com).
 
 ## Developing
 
