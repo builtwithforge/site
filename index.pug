@@ -1,0 +1,174 @@
+doctype html
+
+head
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  title Forge
+  script(defer src='https://use.fontawesome.com/releases/v5.3.1/js/all.js')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css')
+  link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Merriweather&display=swap')
+  style.
+    body, button, input, select, textarea {
+      font-family: "Merriweather", serif;
+    }
+
+    .title {
+      font-weight: normal;
+    }
+  script.
+    // Adapted from https://bulma.io/documentation/components/navbar/#navbarJsExample.
+    document.addEventListener('DOMContentLoaded', () => {
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+      if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach( el => {
+          el.addEventListener('click', () => {
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          });
+        });
+      }
+    });
+
+mixin requestInvite
+  //- Mailchimp form.
+  form(
+    action='https://builtwithforge.us3.list-manage.com/subscribe/post?u=50b83e8cc08cfc1c73ef2a27b&id=4aa48eccdb'
+    method='post'
+    name='mc-embedded-subscribe-form'
+    target='_blank'
+    novalidate
+    style='display: inline-block;'
+  )
+    .field.has-addons
+      .control
+        input.input(type='email' name='EMAIL' placeholder='my@email.address')
+      //- Detects spam bots.
+      div(style='position: absolute; left: -5000px;' aria-hidden='true')
+        input(type='text' name='b_50b83e8cc08cfc1c73ef2a27b_4aa48eccdb' tabindex='-1' value='')
+      .control
+        input.button(type='submit' value='Request an Invite' name='subscribe')
+
+body
+  //- .container
+    nav.navbar(role='navigation' aria-label='main navigation')
+      .navbar-brand
+        a.navbar-item(href='https://builtwithforge.com')
+          h1.subtitle F
+        a.navbar-burger.burger(role='button' aria-label='menu' aria-expanded='false' data-target='topNavbar')
+          span(aria-hidden='true')
+          span(aria-hidden='true')
+          span(aria-hidden='true')
+      #topNavbar.navbar-menu
+        .navbar-end
+          a(href).navbar-item
+            | Comparison
+          a(href).navbar-item
+            | Pricing
+          a(href).navbar-item
+            | About
+          .navbar-item
+            .buttons
+              a(href).button.is-primary
+                strong Sign up
+              a(href).button.is-light
+                | Log in
+
+  section.hero.is-medium
+    .hero-body
+      .container
+        h1.title Forge
+        h2.subtitle The best engineering teams are built with Forge.
+        p Forge is a collection of tools to help engineering managers develop maximally effective teams.
+        br
+        +requestInvite
+
+  section.section.is-medium
+    .container
+      h1.title Answer questions with data, not your gut
+      .columns
+        .column
+          h2.subtitle Are any of my engineers blocked?
+          p.
+            Check whether engineers are stuck at a glance. Keep an eye on risky,
+            critical, or complex work.
+        .column
+          h2.subtitle Is any work falling behind?
+          p.
+            Find work that's been repeatedly delayed. Never be
+            surprised by an off-track status update.
+        .column
+          h2.subtitle Are any PRs stuck?
+          p.
+            Identify stuck PRs at a glance. See trends in stuck work to identify
+            potential bottlenecks.
+
+  section.section.is-medium
+    .container
+      h1.title Manage transparently
+      .columns
+        .column
+          h2.subtitle Transparent performance metrics
+          p.
+            Transparency and accountability are the key to fair engineering
+            management. Keep you and your reports aligned on how they're doing.
+        .column
+          h2.subtitle Keep a pulse on your team
+          p.
+            Get quick feedback on team engagement. See when and where your team
+            is disengaged, and correct your course quickly.
+        .column
+          h2.subtitle Accountability comes from transparency
+          p.
+            Provide structure to standups, check-ins, and meetings. Keep
+            everyone in the loop and accountable.
+
+  section.section.is-medium
+    .container
+      h1.title Equip your team
+      .columns
+        .column
+          h2.subtitle Tools for the small things in life
+          p.
+            "Who is in the office today?"<br />
+            "Who's next on rotation?"<br />
+            <br />
+            Don't spend mental energy keeping track of the small stuff.
+        .column
+          h2.subtitle Tools where you already are
+          p.
+            Don't force your team to learn yet another tool. Everyone is in
+            Slack anyway.
+        .column
+          h2.subtitle Tools you can shape
+          p.
+            Use our API to build your own custom dashboards. Export your data
+            into spreadsheets for reporting.
+
+  section.section.is-large
+    .container.has-text-centered
+      h1.title Engineering management tools shouldn't suck
+      +requestInvite
+
+  footer.footer
+    .container.has-text-centered
+      .level
+        .level-left
+          .level-item
+            p &copy; 2019 Forge
+        .level-right
+          //- .level-item
+            p
+              a(href) Terms of Service
+          //- .level-item
+            p
+              a(href) Privacy
+          //- .level-item
+            p
+              a(href) Security
+          .level-item
+            p
+              a(href='mailto:team@builtwithforge.com' target='_blank') Contact

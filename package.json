@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "devDependencies": {
+    "concurrently": "^4.1.1",
+    "pug": "^2.0.4",
+    "pug-cli": "^1.0.0-alpha6",
+    "serve": "^11.0.2",
+    "surge": "^0.21.3",
+    "yarn": "^1.16.0"
+  },
+  "scripts": {
+    "build": "pug -o dist index.pug",
+    "watch": "pug -o dist -w index.pug",
+    "serve": "serve dist",
+    "dev": "concurrently \"npm:watch\" \"npm:serve\""
+  }
+}
