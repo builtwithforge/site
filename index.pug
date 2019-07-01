@@ -12,13 +12,26 @@ head
       font-family: "Merriweather", serif;
     }
 
-    .container {
-      max-width: 1152px;
-    }
-
     .title {
       font-weight: normal;
     }
+  script.
+    // Adapted from https://bulma.io/documentation/components/navbar/#navbarJsExample.
+    document.addEventListener('DOMContentLoaded', () => {
+      const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+      if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach( el => {
+          el.addEventListener('click', () => {
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          });
+        });
+      }
+    });
 
 mixin requestInvite
   //- Mailchimp form.
@@ -40,16 +53,40 @@ mixin requestInvite
         input.button(type='submit' value='Request an Invite' name='subscribe')
 
 body
+  //- .container
+    nav.navbar(role='navigation' aria-label='main navigation')
+      .navbar-brand
+        a.navbar-item(href='https://builtwithforge.com')
+          h1.subtitle F
+        a.navbar-burger.burger(role='button' aria-label='menu' aria-expanded='false' data-target='topNavbar')
+          span(aria-hidden='true')
+          span(aria-hidden='true')
+          span(aria-hidden='true')
+      #topNavbar.navbar-menu
+        .navbar-end
+          a(href).navbar-item
+            | Comparison
+          a(href).navbar-item
+            | Pricing
+          a(href).navbar-item
+            | About
+          .navbar-item
+            .buttons
+              a(href).button.is-primary
+                strong Sign up
+              a(href).button.is-light
+                | Log in
+
   section.hero.is-medium
     .hero-body
       .container
         h1.title Forge
         h2.subtitle The best engineering teams are built with Forge.
-        p Forge is a collection of tools for engineering managers to develop maximally effective teams.
+        p Forge is a collection of tools to help engineering managers develop maximally effective teams.
         br
         +requestInvite
 
-  section.section
+  section.section.is-medium
     .container
       h1.title Answer questions with data, not your gut
       .columns
@@ -59,22 +96,17 @@ body
             Check whether engineers are stuck at a glance. Keep an eye on risky,
             critical, or complex work.
         .column
-          //- e.g. ticket in progress but no WIP PR
-          //- figure.image
-            img(src='https://placehold.it/480x240')
-          div(style='height: 240px;')
-      .columns
-        .column
           h2.subtitle Is any work falling behind?
           p.
             Find work that's been repeatedly delayed. Never be
             surprised by an off-track status update.
         .column
-          //- figure.image
-            img(src='https://placehold.it/480x240')
-          div(style='height: 240px;')
+          h2.subtitle Are any PRs stuck?
+          p.
+            Identify stuck PRs at a glance. See trends in stuck work to identify
+            potential bottlenecks.
 
-  section.section
+  section.section.is-medium
     .container
       h1.title Manage transparently
       .columns
@@ -84,11 +116,17 @@ body
             Transparency and accountability are the key to fair engineering
             management. Keep you and your reports aligned on how they're doing.
         .column
-          //- figure.image
-            img(src='https://placehold.it/480x240')
-          div(style='height: 240px;')
+          h2.subtitle Keep a pulse on your team
+          p.
+            Get quick feedback on team engagement. See when and where your team
+            is disengaged, and correct your course quickly.
+        .column
+          h2.subtitle Accountability comes from transparency
+          p.
+            Provide structure to standups, check-ins, and meetings. Keep
+            everyone in the loop and accountable.
 
-  section.section
+  section.section.is-medium
     .container
       h1.title Equip your team
       .columns
@@ -98,21 +136,17 @@ body
             "Who is in the office today?"<br />
             "Who's next on rotation?"<br />
             <br />
-            Don't spend brain space keeping track of the small stuff.
-        .column
-          //- figure.image
-            img(src='https://placehold.it/480x240')
-          div(style='height: 240px;')
-      .columns
+            Don't spend mental energy keeping track of the small stuff.
         .column
           h2.subtitle Tools where you already are
           p.
             Don't force your team to learn yet another tool. Everyone is in
-            Slack anyway. 
+            Slack anyway.
         .column
-          //- figure.image
-            img(src='https://placehold.it/480x240')
-          div(style='height: 240px;')
+          h2.subtitle Tools you can shape
+          p.
+            Use our API to build your own custom dashboards. Export your data
+            into spreadsheets for reporting.
 
   section.section.is-large
     .container.has-text-centered
@@ -126,9 +160,15 @@ body
           .level-item
             p &copy; 2019 Forge
         .level-right
-          .level-item
+          //- .level-item
             p
-              a(href='https://github.com/builtwithforge' target='_blank') GitHub
+              a(href) Terms of Service
+          //- .level-item
+            p
+              a(href) Privacy
+          //- .level-item
+            p
+              a(href) Security
           .level-item
             p
               a(href='mailto:team@builtwithforge.com' target='_blank') Contact
