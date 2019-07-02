@@ -32,7 +32,7 @@ head
         });
       }
     });
-  script(async src="https://www.googletagmanager.com/gtag/js?id=UA-143043640-1")
+  script(async src='https://www.googletagmanager.com/gtag/js?id=UA-143043640-1')
   script.
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -40,7 +40,7 @@ head
     gtag('config', 'UA-143043640-1');
 
 
-mixin requestInvite
+mixin callToAction
   //- Mailchimp form.
   form(
     action='https://builtwithforge.us3.list-manage.com/subscribe/post?u=50b83e8cc08cfc1c73ef2a27b&id=4aa48eccdb'
@@ -57,7 +57,8 @@ mixin requestInvite
       div(style='position: absolute; left: -5000px;' aria-hidden='true')
         input(type='text' name='b_50b83e8cc08cfc1c73ef2a27b_4aa48eccdb' tabindex='-1' value='')
       .control
-        input.button(type='submit' value='Request an Invite' name='subscribe')
+        input.button(type='submit' value='Join the mailing list' name='subscribe')
+        p.is-size-7.has-text-centered or <a href="https://builtwithforge.typeform.com/to/ATucOa" target="_blank">request an invite</a>
 
 body
   //- .container
@@ -91,7 +92,7 @@ body
         h2.subtitle The best engineering teams are built with Forge.
         p Forge is a collection of tools to help engineering managers develop maximally effective teams.
         br
-        +requestInvite
+        +callToAction
 
   section.section.is-medium
     .container
@@ -158,7 +159,7 @@ body
   section.section.is-large
     .container.has-text-centered
       h1.title Engineering management tools shouldn't suck
-      +requestInvite
+      +callToAction
 
   footer.footer
     .container.has-text-centered
