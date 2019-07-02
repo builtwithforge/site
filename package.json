@@ -9,7 +9,8 @@
     "yarn": "^1.16.0"
   },
   "scripts": {
-    "build": "pug -o dist index.pug",
+    "clean": "rm -r dist",
+    "build": "pug -o dist index.pug && cp -r assets/. dist/",
     "watch": "pug -o dist -w index.pug",
     "serve": "serve dist",
     "dev": "concurrently \"npm:watch\" \"npm:serve\""
