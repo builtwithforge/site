@@ -113,7 +113,7 @@ body
               a(href).button.is-light
                 | Log in
 
-  section.hero.is-medium
+  section.hero.is-fullheight
     .hero-body
       .container
         h1.title Forge
@@ -124,7 +124,7 @@ body
 
   section.section.is-medium
     .container
-      h1.title Answer questions with data, not your gut
+      h1.title Manage with data, not your gut
       .columns
         .column
           h2.subtitle Are any of my engineers blocked?
@@ -149,62 +149,70 @@ body
         .column
           h2.subtitle Transparent performance metrics
           p.
-            Transparency and accountability are the key to fair engineering
-            management. Keep you and your reports aligned on how they're doing.
+            Accountability comes from transparency. Keep you and your team
+            aligned on how they're doing.
+        .column
+          h2.subtitle Don't forget about context
+          p.
+            Provide structure to standups, check-ins, and meetings. Make sure
+            key information is shared to the people who need to know.
         .column
           h2.subtitle Keep a pulse on your team
           p.
-            Get quick feedback on team engagement. See when and where your team
-            is disengaged, and correct your course quickly.
-        .column
-          h2.subtitle Accountability comes from transparency
-          p.
-            Provide structure to standups, check-ins, and meetings. Keep
-            everyone in the loop and accountable.
+            Run quick, recurring check-ins with your team. Understand when and
+            where people need help.
 
   section.section.is-medium
     .container
       h1.title Equip your team
       .columns
         .column
-          h2.subtitle Tools for the small things in life
-          p.
-            "Who is in the office today?"<br />
-            "Who's next on rotation?"<br />
-            <br />
-            Don't spend mental energy keeping track of the small stuff.
+          h2.subtitle Tools that work together
+          .content
+            p.
+              Integrate with things you already use:
+            ul
+              li Jira
+              li GitHub
+              li Slack
+            p.
+              Use our API to export data or build your own integrations.
         .column
           h2.subtitle Tools where you already are
           p.
             Don't force your team to learn yet another tool. Everyone is in
             Slack anyway.
         .column
-          h2.subtitle Tools you can shape
+          h2.subtitle Tools for the small things in life
           p.
-            Use our API to build your own custom dashboards. Export your data
-            into spreadsheets for reporting.
+            "Who is in the office today?"<br />
+            "Who's next on rotation?"<br />
+            <br />
+            Mental energy is scarce. Don't spend it on the small stuff.
 
-  section.section.is-large
-    .container.has-text-centered
-      h1.title Engineering management tools shouldn't suck
-      +callToAction
+  section.hero.is-fullheight
+    .hero-body
+      .container.has-text-centered
+        h1.title Engineering management tools shouldn't suck
+        +callToAction
 
-  footer.footer
-    .container.has-text-centered
-      .level
-        .level-left
-          .level-item
-            p &copy; 2019 Forge
-        .level-right
-          //- .level-item
-            p
-              a(href) Terms of Service
-          //- .level-item
-            p
-              a(href) Privacy
-          //- .level-item
-            p
-              a(href) Security
-          .level-item
-            p
-              a(href='mailto:team@builtwithforge.com' target='_blank') Contact
+    .hero-foot
+      footer.footer
+        .container.has-text-centered
+          .level
+            .level-left
+              .level-item
+                p &copy; 2019 Forge
+            .level-right
+              //- .level-item
+                p
+                  a(href) Terms of Service
+              //- .level-item
+                p
+                  a(href) Privacy
+              //- .level-item
+                p
+                  a(href) Security
+              .level-item
+                p
+                  a(href='mailto:team@builtwithforge.com' target='_blank') Contact
