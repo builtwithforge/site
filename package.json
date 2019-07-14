@@ -14,5 +14,9 @@
     "watch": "pug -o dist -w index.pug",
     "serve": "serve dist",
     "dev": "concurrently \"npm:watch\" \"npm:serve\""
+  },
+  "engines": {
+    "node": "^12.0.0",
+    "yarn": "^1.17.0"
   }
 }
